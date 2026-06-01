@@ -1,4 +1,4 @@
-### A Newsletter Telegram Bot
+## A Newsletter Telegram Bot
 
 The purpose of this Telegram bot is to generate personalized e-mails based on the target data received in JSON format in a message.
 
@@ -6,5 +6,48 @@ The purpose of this Telegram bot is to generate personalized e-mails based on th
 
 The project consists of three parts:
 1. Telegram API (+ Telegram front-end for user interface).
-2. Python backend (distinct modules for the Telegram interface, session management, JSON format validation, LLM calls, SMTP, data storage, and settings).
+2. Python backend (distinct modules for the Telegram interface, session management, JSON format validation, LLM calls, SMTP, data storage, settings, etc.).
 3. LLM provider (local or remote LLM server, + prepared prompts).
+
+## JSON Template (for input):
+```python
+{
+    "full_name": "",
+    "position": "",
+    "email": ""
+    "preferences": [
+        "",
+        ""
+    ]
+    "products": [
+        {
+            "name": "",
+            "description": ""
+        }
+    ]
+}
+```
+
+## JSON Template (for logging):
+```python
+{
+    "request_id": "",
+    "created_at": "",
+    "user_message": "",
+    "recipient": {
+        "full_name": "",
+        "email": "",
+        "position": ""
+    },
+    "preferences": [
+        "",
+        ""
+    ],
+    "selected_products": [
+        ""
+    ],
+    "generated_email": "",
+    "status": "",
+    "error": null
+}
+```
