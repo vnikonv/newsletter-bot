@@ -1,6 +1,8 @@
 from modules.provider.api_model import GenerateAPI
+from modules.provider.local_model import GenerateLocal
 
 provider = GenerateAPI()
+provider2 = GenerateLocal()
 
 prompt = {
     "full_name": "Василий Олегович Баснецев",
@@ -20,3 +22,5 @@ prompt = {
 }
 
 print(provider.generate(prompt))
+print()
+print(provider2.generate(prompt))
