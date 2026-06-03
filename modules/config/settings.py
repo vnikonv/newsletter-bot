@@ -1,3 +1,5 @@
 IS_API = 1
-API_MODEL = "deepseek-ai/DeepSeek-V4-Pro"
+API_MODEL = "deepseek-ai/DeepSeek-V3.2"
+API_PROVIDER = ""
+IS_COMPLETIONS = 1
 LOCAL_MODEL = ""

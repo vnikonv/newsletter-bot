@@ -14,17 +14,19 @@ The project consists of three parts:
 {
     "full_name": "",
     "position": "",
-    "email": ""
+    "email": "",
     "preferences": [
         "",
         ""
-    ]
+    ],
     "products": [
         {
             "name": "",
             "description": ""
         }
-    ]
+    ],
+    "language": "",
+    "gender": ""
 }
 ```
 
@@ -37,7 +39,8 @@ The project consists of three parts:
     "recipient": {
         "full_name": "",
         "email": "",
-        "position": ""
+        "position": "",
+        "gender": ""
     },
     "preferences": [
         "",
@@ -46,8 +49,15 @@ The project consists of three parts:
     "selected_products": [
         ""
     ],
+    "language": "",
     "generated_email": "",
     "status": "",
     "error": null
 }
+```
+
+## A hint on running locally:
+Install dependencies from requirements-local.txt. Beforehand, run the following command if you want to compile llama-cpp with NVIDIA GPU support:
+```bash
+export CMAKE_ARGS="-DGGML_CUDA=on"
 ```
