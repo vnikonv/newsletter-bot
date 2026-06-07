@@ -1,26 +1,31 @@
-from modules.provider.api_model import GenerateAPI
-from modules.provider.local_model import GenerateLocal
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+from telegram.ext import ApplicationBuilder
+from modules.bot.handlers import register_handlers
 
-provider = GenerateAPI()
-provider2 = GenerateLocal()
 
-prompt = {
-    "full_name": "Василий Олегович Баснецев",
-    "position": "HR Manager",
-    "email": "alice@example.com",
-    "preferences": [
-        "career growth"
-    ],
-    "products": [
-        {
-            "name": "Analytics Suite",
-            "description": "Cloud-based reporting platform"
-        }
-    ],
-    "language": "Russian",
-    "gender": "masculine"
-}
+def _load_env():
+    # prefer project config .env but fall back to system env
+    cfg = Path(__file__).resolve().parent / "modules" / "config" / ".env"
+    if cfg.exists():
+        load_dotenv(dotenv_path=cfg)
 
-print(provider.generate(prompt))
-print()
-print(provider2.generate(prompt))
+
+def main():
+    _load_env()
+
+    token = os.environ.get("TELEGRAM_TOKEN")
+    if not token:
+        raise RuntimeError("TELEGRAM_TOKEN environment variable is required to run the bot")
+
+    app = ApplicationBuilder().token(token).build()
+
+    register_handlers(app)
+
+    print("Starting bot. Press Ctrl-C to stop.")
+    app.run_polling()
+
+
+if __name__ == "__main__":
+    main()

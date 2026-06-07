@@ -1,6 +1,6 @@
 ## A Newsletter Telegram Bot
 
-The purpose of this Telegram bot is to generate personalized e-mails based on the target data received in JSON format in a message.
+The purpose of this Telegram bot is to generate personalized e-mails based on the target data received in JSON format in a message with an option of sending them to a designated address.
 
 ## Structure:
 
@@ -35,21 +35,25 @@ The project consists of three parts:
 {
     "request_id": "",
     "created_at": "",
+    "user_id": int
     "user_message": "",
-    "recipient": {
+    "request_info": {
         "full_name": "",
-        "email": "",
         "position": "",
+        "email": "",
+        "preferences": [
+            "",
+            ""
+        ],
+        "products": [
+            {
+                "name": "",
+                "description": ""
+            }
+        ],
+        "language": "",
         "gender": ""
     },
-    "preferences": [
-        "",
-        ""
-    ],
-    "selected_products": [
-        ""
-    ],
-    "language": "",
     "generated_email": "",
     "status": "",
     "error": null
