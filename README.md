@@ -2,6 +2,8 @@
 
 The purpose of this Telegram bot is to generate personalized e-mails based on the target data received in JSON format in a message with an option of sending them to a designated address.
 
+<img src="newsletter.png" width="600" alt="bot's avatar depicting an old typewriter possessed by spirits">
+
 ## Structure:
 
 The project consists of three parts:

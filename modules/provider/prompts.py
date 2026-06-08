@@ -29,5 +29,4 @@ class ValidatePrompt():
         products_text = "\n".join( [ f"- {product.name}: {product.description}" for product in self.prompt.products ] )
         # Build final LLM prompt
         final_prompt = f"""You are sending a personalized newsletter for native integration/advertisement of products from the provided list. Data on your target: Full Name: {self.prompt.full_name} Position: {self.prompt.position} Interests: {preferences_text} Products: {products_text} Gender: {self.prompt.gender} Make a natural-sounding original short personal letter in {self.prompt.language}. Include the product's name in the letter. Show knowledge of target's personal/professional interests. Without preparations, begin generating the final text of the e-mail right away. Choose your sender's full name that corresponds to the target's cultural background and gender. Feel free to fill every field in the letter yourself."""
-        print(final_prompt)
         return final_prompt.strip()

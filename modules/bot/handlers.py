@@ -10,7 +10,8 @@ from modules.bot.commands import (
     regenerate_command,
     change_command,
     cancel_command,
-    handle_json_input,
+    handle_input,
+    see_email,
 )
 
 
@@ -50,10 +51,16 @@ def register_handlers(app):
         )
     )
 
-    # Handles plain text JSON messages
     app.add_handler(
         MessageHandler(
             filters.TEXT & ~filters.COMMAND,
-            handle_json_input
+            handle_input
+        )
+    )
+
+    app.add_handler(
+        CommandHandler(
+            "email",
+            see_email
         )
     )

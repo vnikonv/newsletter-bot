@@ -6,7 +6,6 @@ from modules.bot.handlers import register_handlers
 
 
 def _load_env():
-    # prefer project config .env but fall back to system env
     cfg = Path(__file__).resolve().parent / "modules" / "config" / ".env"
     if cfg.exists():
         load_dotenv(dotenv_path=cfg)
