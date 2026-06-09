@@ -212,6 +212,29 @@ async def change_command(
     await update.message.reply_text("Please send the modified email text as a message.")
 
 
+async def set_address(
+    update: Update,
+    context: ContextTypes.DEFAULT_TYPE
+):
+    if not update.effective_user or not update.message:
+        return
+
+    user_id = update.effective_user.id
+
+    session = session_store.get_session(user_id)
+
+    if not session:
+        await update.message.reply_text("No active session.")
+        return
+
+    session_store.update_session(
+        telegram_user_id=user_id,
+        state="SETTING_EMAIL_ADDRESS",
+    )
+
+    await update.message.reply_text("Please send the new email address in a message.")
+
+
 async def send_command(
     update: Update,
     context: ContextTypes.DEFAULT_TYPE
@@ -308,6 +331,7 @@ async def cancel_command(
     await update.message.reply_text(
         "Session cancelled."
     )
+
 
 async def see_email(
     update: Update,

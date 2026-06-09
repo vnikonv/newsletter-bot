@@ -9,6 +9,7 @@ from modules.bot.commands import (
     send_command,
     regenerate_command,
     change_command,
+    set_address,
     cancel_command,
     handle_input,
     see_email,
@@ -41,6 +42,13 @@ def register_handlers(app):
         CommandHandler(
             "change",
             change_command
+        )
+    )
+
+    app.add_handler(
+        CommandHandler(
+            "set",
+            set_address
         )
     )
 
